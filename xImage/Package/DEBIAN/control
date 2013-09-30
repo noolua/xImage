@@ -1,0 +1,17 @@
+Package: com.gs-studio.xImage
+Name: xImage
+Version: 1.0-1
+Description: 
+Section: Tweaks
+Depends: firmware (>= 6.1), mobilesubstrate
+Conflicts: 
+Replaces: 
+Priority: optional
+Architecture: iphoneos-arm
+Author: rockee
+dev: 
+Homepage: 
+Depiction: 
+Maintainer: 
+Icon: 
+
