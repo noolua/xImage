@@ -5,31 +5,17 @@
 //  Created by rockee on 13-5-16.
 //
 //
-/*
- 控制面板地址：     http://cp.hichina.com/
- 控制面板账号：     hmu166464
- 密码：zaq1xsw2
- IP地址：121.198.253.210
- 数据库信息(Mysql)
- 数据库类型：     Mysql
- 数据库地址：     hdm-087.hichina.com
- 数据库名称：     hdm0870154_db
- 数据库账号：     hdm0870154
- 数据库密码：     q4y9t6r8r7
- */
-
 #import <CommonCrypto/CommonDigest.h>
 #import "AppSetting.h"
 
 @interface AppSetting (){
 
 }
-@property(nonatomic, readonly) NSURL *update_url;
 @end
 
 @implementation AppSetting
-@synthesize version, plug_path, main_script_path;
-@synthesize comment_url, online_doc_url, update_url, header_request_url, footer_request_url, stat_url, about_url;
+@synthesize version, plug_path;
+@synthesize comment_url, online_doc_url, header_request_url, footer_request_url, stat_url, about_url;
 @synthesize initilized;
 
 +(AppSetting*) instance{
@@ -55,10 +41,8 @@
 //        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 //        plug_path = [[NSString alloc]initWithString:[paths objectAtIndex:0]];
         plug_path = @"/var/tmp";
-        main_script_path = [[NSString alloc] initWithString:[plug_path stringByAppendingPathComponent:@"__core__.lua"]];
         comment_url = [[NSURL alloc] initWithString:@"http://www.fadai8.cn/mobilesafari/comment.php"];
         online_doc_url = [[NSURL alloc] initWithString:@"http://www.fadai8.cn/mobilesafari/help.htm"];
-        update_url = [[NSURL alloc] initWithString:@"http://www.fadai8.cn/mobilesafari/update/__core__.lua"];
         header_request_url = [[NSURL alloc] initWithString:@"http://www.fadai8.cn/mobilesafari/request_images.php?type=header"];
         footer_request_url = [[NSURL alloc] initWithString:@"http://www.fadai8.cn/mobilesafari/request_images.php?type=footer"];
         stat_url = [[NSURL alloc] initWithString:@"http://www.fadai8.cn/mobilesafari/stat.php"];
@@ -69,10 +53,8 @@
 
 -(void)dealloc{
     [plug_path release];
-    [main_script_path release];
     [comment_url release];
     [online_doc_url release];
-    [update_url release];
     [header_request_url release];
     [footer_request_url release];
     [stat_url release];
@@ -84,33 +66,10 @@
 }
 
 -(BOOL)default_load{
-    BOOL isDir = NO;
-    BOOL isOK = NO;
-    NSFileManager *fm = [NSFileManager defaultManager];
-    
-    if(![fm fileExistsAtPath:main_script_path isDirectory:&isDir]){
-        isOK = [self update];
-    }else{
-        [self reload];
-        isOK = YES;
-    }
-    initilized = isOK;
-    return isOK;
+    initilized = YES;
+    return initilized;
 }
 
--(BOOL) update{
-    BOOL isOK = NO;
-    NSData *data = [NSData dataWithContentsOfURL: update_url];
-    
-    if(data){
-        isOK = [data writeToFile:main_script_path atomically:YES];
-        if(isOK){
-            [self reload];
-        }
-    }
-    initilized = isOK;
-    return isOK;
-}
 @end
 
 @interface AppConfig(){

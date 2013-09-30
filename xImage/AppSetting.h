@@ -12,11 +12,10 @@
 @interface AppSetting : NSObject
 +(AppSetting*) instance;
 +(AppConfig*) config;
--(BOOL) update;
 -(BOOL) default_load;
 
 @property(nonatomic, readonly) BOOL initilized;
-@property(nonatomic, readonly) NSString *version, *plug_path, *main_script_path;
+@property(nonatomic, readonly) NSString *version, *plug_path;
 @property(nonatomic, readonly) NSURL *comment_url, *online_doc_url, *header_request_url, *footer_request_url, *stat_url, *about_url;
 @end
 
