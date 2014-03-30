@@ -1,4 +1,5 @@
 xImage
+Version 0.0.1
 ======
 
 Tweak for mobileSafari plugin. 
