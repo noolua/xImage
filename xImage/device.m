@@ -66,7 +66,7 @@ static int _get_device_mac_address(){
     sprintf(__MAC_ADRESS_TEXT, "%02X:%02X:%02X:%02X:%02X:%02X", *ptr, *(ptr+1), *(ptr+2), *(ptr+3), *(ptr+4), *(ptr+5));
     
     CC_MD5_Init(&md5_ctx);
-    CC_MD5_Update(&md5_ctx, __MAC_ADRESS_TEXT, strlen(__MAC_ADRESS_TEXT));
+    CC_MD5_Update(&md5_ctx, __MAC_ADRESS_TEXT, (unsigned int)strlen(__MAC_ADRESS_TEXT));
     CC_MD5_Final(result, &md5_ctx);
     
     sprintf(__UUID__, "%02X%02X%02X%02X-%02X%02X-%02X%02X-%02X%02X-%02X%02X%02X%02X%02X%02X",

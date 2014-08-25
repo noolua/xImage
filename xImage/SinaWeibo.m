@@ -61,7 +61,7 @@
 }
 
 -(int) count{
-    return [accounts count];
+    return (int)[accounts count];
 }
 
 -(NSString*) accountNameAtIndex:(int)index{

@@ -117,7 +117,7 @@
 
 #define MD5_UP_STRING(ctx, name)        \
 if(![name isEqualToString:@""]){\
-    CC_MD5_Update(&ctx, [name UTF8String], [name lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);\
+    CC_MD5_Update(&ctx, [name UTF8String], (unsigned int)[name lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);\
 }
 
 

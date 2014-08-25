@@ -213,7 +213,7 @@ enum
 -(void)sendWeibo:(id)sender{
     NSString *message = _statusView.text;
     NSString *filePath = [[AppSetting instance].plug_path stringByAppendingPathComponent:SNAP_FILE];
-    int length = [message length];
+    NSUInteger length = [message length];
     if(length > 0  && length < 140){
         [self startWaiting];
         [_statusView resignFirstResponder];
@@ -251,14 +251,14 @@ enum
 }
 
 -(void)updateLabel{
-    int length = [_statusView.text length];
+    int  length = (int)[_statusView.text length];
     length = 140 - length;
     if(_image_file_size == 0){
         NSString *text = [[NSString alloc] initWithFormat:@"%@原文链接, 还剩(%d)个字", (_switchAddURL.on ? @"添加" :@"取消"), length];
         _label.text = text;
         [text release];
     }else{
-        NSString *text = [[NSString alloc] initWithFormat:@"%@原文链接, 还剩(%d)个字, 图片大小 %lldK",
+        NSString *text = [[NSString alloc] initWithFormat:@"%@原文链接, 还剩(%d)个字, 图片大小 %lluK",
                           (_switchAddURL.on ? @"添加" :@"取消"), length, _image_file_size / 1024];
         _label.text = text;
         [text release];

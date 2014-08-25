@@ -224,7 +224,7 @@
     NSData *data = [postfield dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[AppSetting instance].stat_url];
     [request setHTTPMethod:@"POST"];
-    NSString *postLength = [NSString stringWithFormat:@"%d", [data length]];
+    NSString *postLength = [NSString stringWithFormat:@"%d", (int)[data length]];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     

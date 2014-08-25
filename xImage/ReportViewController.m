@@ -160,7 +160,7 @@ enum
             
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[AppSetting instance].comment_url cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:5.0];
             [request setHTTPMethod:@"POST"];
-            NSString *postLength = [NSString stringWithFormat:@"%d", [data length]];
+            NSString *postLength = [NSString stringWithFormat:@"%d", (int)[data length]];
             [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
             [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
             
@@ -187,7 +187,7 @@ enum
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
     NSString *msg = @"提交成功";
     if ([httpResponse statusCode] >= 400) {
-        msg = [NSString stringWithFormat:@"提交失败(%d)，请稍候再试", [httpResponse statusCode]];
+        msg = [NSString stringWithFormat:@"提交失败(%d)，请稍候再试", (int)[httpResponse statusCode]];
     }else{
 //        _comment.text = @"";
     }

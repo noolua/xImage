@@ -52,7 +52,7 @@
                                    NSArray *urls = responser(response, responseData, error);
                                    resource_urls = [[NSArray alloc] initWithArray:urls];
                                    downloaded = 0;
-                                   count = [resource_urls count];
+                                   count = (int)[resource_urls count];
                                    [self performSelector:@selector(downloadResouce)];
                                }];
     }

@@ -30,7 +30,7 @@
 -(id) setupWithItems:(NSArray*) items_ enableMultiSelect:(BOOL) enable completion:(SelectionsViewControllerCompletionHandler)completion_{
     self.items = items_;
     self.enableMultiSelect = enable;
-    items_count = [items_ count];
+    items_count = (int)[items_ count];
     NSMutableArray *sections = [[NSMutableArray alloc] initWithCapacity:4];
     TableSection *sec = [[TableSection alloc] initWithCapacity:8];
     

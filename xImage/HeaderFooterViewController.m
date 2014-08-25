@@ -229,15 +229,15 @@ enum{
     }
 }
 -(void) headerAlignmentChanged:(UISegmentedControl*)segment{
-    [AppSetting config].headerAlignment = segment.selectedSegmentIndex;
+    [AppSetting config].headerAlignment = (int)segment.selectedSegmentIndex;
 }
 
 -(void) footerTextAlignmentChanged:(UISegmentedControl*)segment{
-    [AppSetting config].footerTextAlignment = segment.selectedSegmentIndex;
+    [AppSetting config].footerTextAlignment = (int)segment.selectedSegmentIndex;
 }
 
 -(void) footerImageAlignmentChanged:(UISegmentedControl*)segment{
-    [AppSetting config].footerImageAlignment = segment.selectedSegmentIndex;
+    [AppSetting config].footerImageAlignment = (int)segment.selectedSegmentIndex;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{

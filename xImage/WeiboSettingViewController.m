@@ -186,7 +186,7 @@ enum
 }
 
 -(void) jpgQunalityValueChanged:(UISegmentedControl*)segment{
-    [AppSetting config].jpgQunalityLevel = segment.selectedSegmentIndex;
+    [AppSetting config].jpgQunalityLevel = (int)segment.selectedSegmentIndex;
 }
 
 -(void) switchImageFormat:(UISwitch*)switchFormat{

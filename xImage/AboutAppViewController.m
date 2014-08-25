@@ -167,7 +167,7 @@ enum
      {
          NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
          if ([httpResponse statusCode] >= 400 || error != nil){
-             NSString *msg = [NSString stringWithFormat:@"访问失败, 代码(%d)，请稍候再试", [httpResponse statusCode]];
+             NSString *msg = [NSString stringWithFormat:@"访问失败, 代码(%d)，请稍候再试", (int)[httpResponse statusCode]];
              [self showStatus:msg inSeconds:2.0 withCompletion:NULL];
          }else{
              NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseData
@@ -190,7 +190,7 @@ enum
 
     [sec removeAllObjects];
     NSArray *arrayApps = [contents objectForKey:@"apps"];
-    int count = [arrayApps count];
+    int count = (int)[arrayApps count];
     sec.header = @"";
     if(count > 0){
         sec.header = @"推荐应用";
